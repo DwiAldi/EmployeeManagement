@@ -12,7 +12,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="{{route('dashboard')}}">
-            <i class="fas fa-user-edit"></i>
+            <i class="fas fa-book"></i>
             <span>Dashboard</span></a>
     </li>
 
@@ -23,13 +23,13 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('employee.index')}}">
             <i class="fas fa-user-edit"></i>
-            <span>Maintain User</span></a>
+            <span>Manage User</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('leave.index')}}">
             <i class="fas fa-candy-cane"></i>
-            <span>Maintain Leave</span></a>
+            <span>Manage Leave</span></a>
     </li>
 
     {{-- <!-- Divider -->

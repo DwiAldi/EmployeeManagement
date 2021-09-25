@@ -28,6 +28,7 @@ Route::prefix('admin')
             ->name('dashboard');
 
         Route::resource('employee', '\App\Http\Controllers\Admin\EmployeeController');
+        Route::resource('leave', '\App\Http\Controllers\Admin\LeaveController');
     });
 
 Auth::routes();
