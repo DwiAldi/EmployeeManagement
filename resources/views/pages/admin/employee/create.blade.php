@@ -14,7 +14,7 @@
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                    
+
                         <li>{{ $error }}</li>
 
                     @endforeach
@@ -36,11 +36,11 @@
                     </div>
                     <div class="form-group">
                         <label for="birth_date">Birth Date</label>
-                        <input type="date" class="form-control" name="birth_date" placeholder="Birth_Date" value="{{old('birth_date')}}">
+                        <input type="date" class="form-control" name="birth_date" placeholder="dd-mm-yyyy" value="{{old('birth_date')}}">
                     </div>
                     <div class="form-group">
                         <label for="join_date">Joined Date</label>
-                        <input type="date" class="form-control" name="join_date" placeholder="Join_Date" value="{{old('join_date')}}">
+                        <input type="date" class="form-control" name="join_date" placeholder="dd-mm-yyyy" value="{{old('join_date')}}">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">
