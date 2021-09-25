@@ -21,13 +21,16 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('admin')
     ->namespace('Admin')
-    // ->middleware('auth','admin')
+    ->middleware('auth','admin')
     ->group(function(){
         //127.0.0.0/admin/
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
+
+        Route::resource('employee', '\App\Http\Controllers\Admin\EmployeeController');
+        Route::resource('leave', '\App\Http\Controllers\Admin\LeaveController');
     });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

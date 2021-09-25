@@ -17,10 +17,10 @@ class IsHR
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->roles = 'HR'){
+        if(Auth::user() && Auth::user()->roles = 'hr'){
             return $next($request);
         }
 
-        return redirect('/dashboard');
+        return redirect('/home');
     }
 }
