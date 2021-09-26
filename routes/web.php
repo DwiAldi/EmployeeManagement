@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return redirect('/admin');
+});
+
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::prefix('admin')
     ->namespace('Admin')

@@ -6,7 +6,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Employee</h1>
+            <h1 class="h3 mb-0 text-gray-800">Update User</h1>
         </div>
 
 
@@ -14,9 +14,7 @@
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-
                         <li>{{ $error }}</li>
-
                     @endforeach
                 </ul>
             </div>
@@ -24,31 +22,27 @@
 
         <div class="card shadow">
             <div class="card-body">
-                <form action="{{route('employee.store')}}" method="POST">
+                <form action="{{route('leave.update', $item->id)}}" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name" value="{{old('name')}}">
+                        {{-- <label for="id_employee">Employee ID</label> --}}
+                        <input type="string" class="form-control" name="id_employee" placeholder="ID Employee" value="{{$item->id_employee}}" hidden>
                     </div>
                     <div class="form-group">
-                        <label for="name">E-Mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                        <label for="leave_date">Leave Date</label>
+                        <input type="date" class="form-control" name="leave_date" placeholder="Leave Date" value="{{$item->leave_date}}">
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea name="address" rows="10" class="d-block w-100 form-control">{{old('address')}}</textarea>
+                        <label for="leave_period">Leave Period</label>
+                        <input type="number" class="form-control" name="leave_period" placeholder="Leave Period" value="{{$item->leave_period}}">
                     </div>
                     <div class="form-group">
-                        <label for="birth_date">Birth Date</label>
-                        <input type="date" class="form-control" name="birth_date" placeholder="dd-mm-yyyy" value="{{old('birth_date')}}">
+                        <label for="reason">Leave Reason</label>
+                        <textarea name="reason" rows="10" class="d-block w-100 form-control">{{$item->reason}}</textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="join_date">Joined Date</label>
-                        <input type="date" class="form-control" name="join_date" placeholder="dd-mm-yyyy" value="{{old('join_date')}}">
-                    </div>
-
                     <button type="submit" class="btn btn-primary btn-block">
-                        Save
+                        Update
                     </button>
                 </form>
             </div>

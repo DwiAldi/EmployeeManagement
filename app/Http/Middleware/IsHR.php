@@ -17,7 +17,7 @@ class IsHR
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->roles = 'hr'){
+        if(Auth::user() && Auth::user()->roles == 'hr'){
             return $next($request);
         }
 
