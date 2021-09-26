@@ -23,7 +23,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{route('employee.index')}}">
             <i class="fas fa-user-edit"></i>
-            <span>Manage User</span></a>
+            <span>Manage Employee</span></a>
     </li>
 
     <li class="nav-item active">
