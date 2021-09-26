@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Requests\Admin\EmployeeRequest;
 use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -50,6 +52,7 @@ class EmployeeController extends Controller
         $lastIDEmployee = IdGenerator::generate(['table' => 'employees', 'field' => 'id_employee', 'length' => 7, 'prefix' =>'IP06']);
 
         $name = $request->name;
+        $email = $request->email;
         $address = $request->address;
         $birth_date = $request->birth_date;
         $join_date = $request->join_date;
@@ -62,7 +65,16 @@ class EmployeeController extends Controller
             'join_date' => $join_date
         );
 
+        $data_user = array(
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make('12345678'), //set default password
+            'roles' => 'employee',
+            'username' => $lastIDEmployee
+        );
+
         Employee::create($data);
+        User::create($data_user);
         return redirect()->route('employee.index');
     }
 

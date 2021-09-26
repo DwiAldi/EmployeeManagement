@@ -31,6 +31,10 @@
                         <input type="text" class="form-control" name="name" placeholder="Name" value="{{old('name')}}">
                     </div>
                     <div class="form-group">
+                        <label for="name">E-Mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                    </div>
+                    <div class="form-group">
                         <label for="address">Address</label>
                         <textarea name="address" rows="10" class="d-block w-100 form-control">{{old('address')}}</textarea>
                     </div>
